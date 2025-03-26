@@ -13,8 +13,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static java.nio.channels.FileChannel.open;
 import static org.openqa.selenium.Keys.*;
+import static ru.netology.delivery.data.DataGenerator.generatePhone;
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class CardDeliveryTest {
@@ -35,7 +36,7 @@ public class CardDeliveryTest {
         var secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
 
         $("[data-test-id=city] input").setValue(validUser.getCity());
-        $("[data-test-id=date] input").sendKeys(chord(SHIFT, HOME), Keys.BACK_SPACE);
+        $("[data-test-id=date] input").sendKeys(chord(SHIFT, HOME), BACK_SPACE);
         $("[data-test-id=date] input").setValue(firstMeetingDate);
         $("[data-test-id=name] input").setValue(validUser.getName());
         $("[data-test-id=phone] input").setValue(validUser.getPhone());
